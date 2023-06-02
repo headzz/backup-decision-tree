@@ -1,0 +1,89 @@
+@font-face {
+  font-family: Museo Sans;
+  src: url("../webfonts/MuseoSans-700.ttf");
+  font-weight: 700;
+}
+
+body {
+  background-color: #00a335;
+}
+
+footer {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  grid-area: foot;
+}
+
+header {
+  align-self: start;
+  grid-area: head;
+  justify-self: center;
+  padding-top: 64px;
+}
+
+img {
+  align-self: center;
+}
+
+input {
+  align-self: center;
+  border: 0;
+  border-radius: 32px;
+  font-size: 48px;
+  outline: 0;
+  padding: 24px 32px;
+  width: 100%;
+}
+
+main {
+  display: grid;
+  grid-template-areas:
+    "head"
+    "content"
+    "foot";
+  grid-template-rows: 270px 1fr 270px;
+  height: 100vh;
+  height: 100dvh;
+  justify-content: center;
+}
+
+p {
+  align-self: center;
+  font-family: "Museo Sans", Arial, sans-serif;
+  margin: 0;
+  margin-top: 1.5rem;
+}
+
+.button {
+  align-self: center;
+  background-color: #d4e167;
+  border: 0;
+  border-radius: 64px;
+  color: #153033;
+  font-size: 48px;
+  margin-top: 62px;
+  opacity: 1;
+  padding: 24px;
+  width: 480px;
+}
+
+.button:disabled {
+  background-color: rgba(212, 225, 103, 0.7);
+}
+
+.content {
+  align-self: center;
+  grid-area: content;
+  justify-self: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+#errorMessage {
+  color: #9f2c2c;
+  font-size: 2.5rem;
+  height: 38px;
+}
