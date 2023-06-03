@@ -1,5 +1,6 @@
+const regex = /^[0-9]+$/
+
 function nameValidation(){
-  console.log('entered')
   const inputData = document.querySelector(`main div input[name="name"]`)
   const inputError = inputData.nextElementSibling
   const buttonData = inputError.nextElementSibling
@@ -22,6 +23,18 @@ function formatTelephone(telephoneElement, textoAtual, telephoneSize, slice1, sl
   telephoneElement.value = textoAjustado
 }
 
+function isNumberValid(button, error, type, text){
+
+  const isValid = regex.test(text.trim())
+  const errorMessage = (type == 'telephone') ? 'Telefone deve conter apenas números.' : 'CPF/CNPJ deve conter apenas números.'
+  if(isValid){
+    button.disabled = false
+    return error.innerHTML = ''
+  }
+  button.disabled = true
+  return error.innerHTML = errorMessage
+}
+
 function telephoneMask(){
 
   const telephoneData = document.querySelector(`main div input[name="telephone"]`)
@@ -34,20 +47,17 @@ function telephoneMask(){
   
   if(telephoneSize >12){
     formatTelephone(telephoneData, textoAtual, telephoneSize, 2, 7)
-
-    buttonData.disabled = false
-    return;
+    return isNumberValid(buttonData, inputError, 'telephone', textoAtual)
   } 
+
   if(telephoneSize >7){
     formatTelephone(telephoneData, textoAtual, telephoneSize, 2, 6)
 
     if(telephoneSize === 12){
-      buttonData.disabled = false
-    } else {
+      return isNumberValid(buttonData, inputError, 'telephone', textoAtual)
+    } 
       buttonData.disabled = true
-    }
-
-    return;
+      return inputError.innerHTML = ''
   }
 
   if(telephoneSize >2){
@@ -61,22 +71,18 @@ function telephoneMask(){
   }
 }
 
-function cpfCnpjValidation(){
-  console.log('cpf')
+function cpfCnpjMask(){
   const cpfCnpjData = document.querySelector(`main div input[name="cpf"]`)
   const inputError = cpfCnpjData.nextElementSibling
   const buttonData = inputError.nextElementSibling
 
-  console.log(cpfCnpjData.value)
-
   let textoAtual = cpfCnpjData.value;
-  console.log(textoAtual)
+
   textoAtual = textoAtual.replaceAll("/", "").replaceAll("-", "").replaceAll(".","");
-  console.log(textoAtual)
+
   const inputCpfCnpjSize = textoAtual.length
 
   if(inputCpfCnpjSize === 11 ){
-    console.log('cpf ok')
     const parte1 = textoAtual.slice(0,3);
     const parte2 = textoAtual.slice(3,6);
     const parte3 = textoAtual.slice(6,9);
@@ -84,12 +90,10 @@ function cpfCnpjValidation(){
 
     textoAjustado = `${parte1}.${parte2}.${parte3}-${parte4}`
     cpfCnpjData.value = textoAjustado
-    buttonData.disabled = false
-    console.log(textoAjustado)
-    return;
+    return isNumberValid(buttonData, inputError, 'cpf', textoAtual)
   }
 
-  if(inputCpfCnpjSize === 14 ){
+  if(inputCpfCnpjSize === 14){
     const parte1 = textoAtual.slice(0,2);
     const parte2 = textoAtual.slice(2,5);
     const parte3 = textoAtual.slice(5,8);
@@ -98,9 +102,7 @@ function cpfCnpjValidation(){
 
     textoAjustado = `${parte1}.${parte2}.${parte3}/${parte4}-${parte5}`
     cpfCnpjData.value = textoAjustado
-    buttonData.disabled = false
-    console.log('cnpj: ',textoAjustado)
-    return;
+    return isNumberValid(buttonData, inputError, 'cnpj', textoAtual)
   }
 
   cpfCnpjData.value = textoAtual

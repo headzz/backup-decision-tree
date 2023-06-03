@@ -7,10 +7,14 @@
     <link rel="stylesheet" href="./css/style.css" />
 
     <title>Intelbras - Solar</title>
+
+    <script src="./js/redirection.js"></script>
+    <script src="./js/input.js"></script>
+    <script src="./js/main.js"></script>
   </head>
   
   <body>
-    <main page="1">
+    <main page="1" style="display: none;">
       <header>
         <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
       </header>
@@ -38,20 +42,6 @@
       </footer>
     </main>
 
-    <main page="2" style="display: none;">
-      <header>
-        <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
-      </header>
-      <div class="content">
-        <input type="text" placeholder="Email: " name="cpfCnpj" onkeydown='processChange("cpfCnpj")'>
-        <p id="errorMessage" >asd</p>
-        <button class="button" onclick="onPageClick(2)">Confirmar</button>
-      </div>
-      <footer>
-        <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
-      </footer>
-    </main>
-
     <main page="3" style="display: none;">
       <header>
         <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
@@ -66,7 +56,190 @@
       </footer>
     </main>
 
-    <script src="./js/input.js"></script>
-    <script src="./js/main.js"></script>
+    <main page="4">
+      <header>
+        <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
+      </header>
+
+      <div class="decision-content">
+        <p class="main-text">Você já é um parceiro Intelbras?</p>
+        <div class="decision-button-container">
+          <button class="decision-button" onclick="onTreeDecisionClick(4,7)">Sim</button>
+          <button class="decision-button" onclick="onPageClick(4)">Não</button>
+        </div>
+      </div>
+      
+      <footer>
+        <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
+      </footer>
+    </main>
+
+    <!-- style="display: none;" DO NOT FORGET-->
+    <main page="5" style="display: none;">
+      <header>
+        <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
+      </header>
+
+      <div class="decision-content-full">
+        <p class="main-text text-m1">O mercado de energia solar acumulou R$8 bilhões em investimentos no Brasil.</p>
+        <p class="main-text text-light text-m1">Você quer fazer <br />parte dessa história?</p>
+        <div class="decision-button-container">
+          <button class="decision-button" onclick="onPageClick(5)">Sim</button>
+          <button class="decision-button" onclick="returnHomePage()">Não</button>
+        </div>
+      </div>
+      
+      <footer>
+        <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
+      </footer>
+    </main>
+
+    <main page="6" style="display: none;">
+      <header>
+        <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
+      </header>
+
+      <div class="decision-content-full decision-benefits-step-one">
+        <p class="main-text text-m1">Com energia solar Intelbras 
+          é possível lucrar mais de 
+          R$5.000 com uma única 
+          venda, veja só:
+        </p>
+        <img width="500" height="300">
+        <button class="button" onclick="onPageClick(6)">Começar Agora</button>
+      </div>
+      
+      <footer>
+        <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
+      </footer>
+    </main>
+
+    <main page="7" style="display: none;">
+      <header>
+        <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
+      </header>
+
+      <div class="decision-content-full decision-benefits-step-one" style="width: 80%;">
+        <p class="main-text text-m2">
+          Seja uma revenda Intelbras Solar 
+          e aprenda, de maneira rápida e 
+          fácil, a ganhar dinheiro com um 
+          mercado lucrativo e promissor.
+        </p>
+        <img width="400" height="400">
+        <button class="button" onclick="showLastPage(7)">Continuar</button>
+      </div>
+      
+      <footer>
+        <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
+      </footer>
+    </main>
+
+    <main page="8" style="display: none;">
+      <header>
+        <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
+      </header>
+
+      <div class="decision-content-full decision-benefits-step-one" style="width: 80%;">
+        <p class="main-text text-m2">
+          Legal! O que você
+          vende hoje?
+        </p>
+        <fieldset>
+          <div>
+            <input type="checkbox" id="security" name="security" class="checkbox"value="security" />
+            <label class="main-text text-light text-small" for="security">Segurança Eletrônica</label>
+          </div>
+          <div>
+            <input type="checkbox" id="security" name="security" class="checkbox"value="security" />
+            <label class="main-text text-light text-small" for="security">Segurança Eletrônica</label>
+          </div>
+          <div>
+            <input type="checkbox" id="energy" name="energy" class="checkbox"value="energy" />
+            <label class="main-text text-light text-small" for="energy">Energia</label>
+          </div>
+          <div>
+            <input type="checkbox" id="access-control" name="access-control" class="checkbox"value="access-control" />
+            <label class="main-text text-light text-small" for="access-control">Controle de Acesso</label>
+          </div>
+          <div>
+            <input type="checkbox" id="network" name="network" class="checkbox"value="network" />
+            <label class="main-text text-light text-small" for="network">Redes</label>
+          </div>
+          <div>
+            <input type="checkbox" id="communication" name="communication" class="checkbox"value="communication" />
+            <label class="main-text text-light text-small" for="communication">Comunicação</label>
+          </div>
+          <div>
+            <input type="checkbox" id="solar" name="solar" class="checkbox"value="solar" />
+            <label class="main-text text-light text-small" for="solar">Energia Solar</label>
+          </div>
+        </fieldset>
+        <button class="button" onclick="redirectFromSolar()">Continuar</button>
+      </div>
+      
+      <footer>
+        <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
+      </footer>
+    </main>
+
+    <main page="9" style="display: none;">
+      <header>
+        <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
+      </header>
+
+      <div class="decision-content-full decision-benefits-step-one" style="width: 100%;">
+        <p class="main-text text-m1">
+          Você ainda não<br/>
+          vende energia solar.😲
+        </p>
+
+        <p class="main-text text-small text-light">
+          Veja como é possível lucrar<br/>
+          mais com uma única venda.
+        </p>
+
+        <img width="700" height="450">
+        <button class="button" onclick="showLastPage(9)">Quero Começar</button>
+      </div>
+      
+      <footer>
+        <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
+      </footer>
+    </main>
+    
+    <main page="14" style="display: none;">
+      <header>
+        <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
+      </header>
+
+      <div class="decision-content-full decision-benefits-step-one" style="width:100%;">
+        <p class="main-text text-m1">
+          Fature alto instalando <br/>
+          energia solar com a Intelbras.
+        </p>
+
+        <p class="main-text text-small text-light">
+          Aproveite os cupons de desconto <br />
+          pra começar faturando mais.
+        </p>
+
+        <div style="display: flex; flex-direction: column; align-self: center;">
+          <p class="coupon">CUPOM ON GRID</p>
+          <p class="coupon">CUPOM OFF GRID</p>
+        </div>
+        
+        <p class="main-text text-small">
+          Tire uma foto dos seus <br />
+          cupons pra usar depois!
+        </p>
+
+        <button class="button" onclick="returnHomePage()">Encerrar</button>
+      </div>
+      
+      <footer>
+        <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
+      </footer>
+    </main>
   </body>
 </html>

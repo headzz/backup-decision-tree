@@ -4,8 +4,28 @@
   font-weight: 700;
 }
 
+@font-face {
+  font-family: Museo Sans;
+  src: url("../webfonts/MuseoSans-300.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Museo Sans;
+  src: url("../webfonts/MuseoSans-500.ttf");
+  font-weight: 500;
+}
+
 body {
   background-color: #00a335;
+}
+
+fieldset {
+  border: 0;
+}
+
+fieldset > div {
+  margin-top: 1rem;
 }
 
 footer {
@@ -35,6 +55,10 @@ input {
   outline: 0;
   padding: 24px 32px;
   width: 100%;
+}
+
+label {
+  margin-left: 0.8rem;
 }
 
 main {
@@ -75,15 +99,107 @@ p {
 
 .content {
   align-self: center;
+  display: flex;
+  flex-direction: column;
   grid-area: content;
   justify-self: center;
-  display: flex;
   justify-content: space-between;
+  width: 824px;
+}
+
+.coupon {
+  border: 5px #fff dashed;
+  border-radius: 40px;
+  color: #d4e167;
+  font-family: "Museo Sans", Arial, sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  padding: 24px;
+  text-align: center;
+  width: 490px;
+}
+
+.decision-content {
+  align-self: center;
+  display: flex;
   flex-direction: column;
+  grid-area: content;
+  height: 40%;
+  justify-self: center;
+  justify-content: space-between;
+  width: 824px;
+}
+
+.decision-content-full {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  grid-area: content;
+  height: 54%;
+  justify-self: center;
+  justify-content: space-between;
+  width: 824px;
+}
+
+.decision-benefits-step-one {
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.decision-button-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.decision-button {
+  align-self: center;
+  background-color: #d4e167;
+  border: 0;
+  border-radius: 64px;
+  color: #153033;
+  font-size: 48px;
+  margin-top: 62px;
+  opacity: 1;
+  padding: 24px;
+  width: 274px;
+}
+
+.main-text {
+  color: #fff;
+  font-family: "Museo Sans", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 83px;
+  text-align: center;
+}
+
+.text-light {
+  font-weight: 300;
+}
+
+.text-normal {
+  font-weight: 500;
+}
+
+.text-m1 {
+  font-size: 60px;
+}
+
+.text-m2 {
+  font-size: 55px;
+}
+
+.text-small {
+  font-size: 45px;
 }
 
 #errorMessage {
   color: #9f2c2c;
   font-size: 2.5rem;
   height: 38px;
+}
+
+.checkbox {
+  height: 30px;
+  vertical-align: initial;
+  width: 30px;
 }
