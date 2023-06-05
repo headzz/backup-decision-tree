@@ -17,7 +17,7 @@ const onPageClick = (id) => {
     const nextPage = `main[page="${(id+1)}"]`
     document.querySelector(nextPage).style = "display: grid"
 
-    if(id<PAGE_WITHOUT_VALIDATION){
+    if((id+1)<PAGE_WITHOUT_VALIDATION){
       document.querySelector(`${nextPage} div button`).disabled = true
     }
 }
@@ -43,7 +43,7 @@ const returnHomePage = () => {
   console.log('return to home page')
 }
 
-function debounce(func, timeout = 120){
+function debounce(func, timeout = 250){
   let timer;
   return (...args) => {
     clearTimeout(timer);

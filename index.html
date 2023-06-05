@@ -14,7 +14,7 @@
   </head>
   
   <body>
-    <main page="1" style="display: none;">
+    <main page="1">
       <header>
         <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
       </header>
@@ -56,7 +56,7 @@
       </footer>
     </main>
 
-    <main page="4">
+    <main page="4" style="display: none;">
       <header>
         <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
       </header>
@@ -74,7 +74,6 @@
       </footer>
     </main>
 
-    <!-- style="display: none;" DO NOT FORGET-->
     <main page="5" style="display: none;">
       <header>
         <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
@@ -145,37 +144,37 @@
           Legal! O que você
           vende hoje?
         </p>
-        <fieldset>
+        <fieldset id="what-do-you-sell">
           <div>
-            <input type="checkbox" id="security" name="security" class="checkbox"value="security" />
+            <input onclick="checkboxButtonValidation('what-do-you-sell')"type="checkbox" id="security" name="security" class="checkbox"value="security" />
             <label class="main-text text-light text-small" for="security">Segurança Eletrônica</label>
           </div>
           <div>
-            <input type="checkbox" id="security" name="security" class="checkbox"value="security" />
+            <input onclick="checkboxButtonValidation('what-do-you-sell')"type="checkbox" id="security" name="security" class="checkbox"value="security" />
             <label class="main-text text-light text-small" for="security">Segurança Eletrônica</label>
           </div>
           <div>
-            <input type="checkbox" id="energy" name="energy" class="checkbox"value="energy" />
+            <input onclick="checkboxButtonValidation('what-do-you-sell')"type="checkbox" id="energy" name="energy" class="checkbox"value="energy" />
             <label class="main-text text-light text-small" for="energy">Energia</label>
           </div>
           <div>
-            <input type="checkbox" id="access-control" name="access-control" class="checkbox"value="access-control" />
+            <input onclick="checkboxButtonValidation('what-do-you-sell')"type="checkbox" id="access-control" name="access-control" class="checkbox"value="access-control" />
             <label class="main-text text-light text-small" for="access-control">Controle de Acesso</label>
           </div>
           <div>
-            <input type="checkbox" id="network" name="network" class="checkbox"value="network" />
+            <input onclick="checkboxButtonValidation('what-do-you-sell')"type="checkbox" id="network" name="network" class="checkbox"value="network" />
             <label class="main-text text-light text-small" for="network">Redes</label>
           </div>
           <div>
-            <input type="checkbox" id="communication" name="communication" class="checkbox"value="communication" />
+            <input onclick="checkboxButtonValidation('what-do-you-sell')"type="checkbox" id="communication" name="communication" class="checkbox"value="communication" />
             <label class="main-text text-light text-small" for="communication">Comunicação</label>
           </div>
           <div>
-            <input type="checkbox" id="solar" name="solar" class="checkbox"value="solar" />
+            <input onclick="checkboxButtonValidation('what-do-you-sell')"type="checkbox" id="solar" name="solar" class="checkbox"value="solar" />
             <label class="main-text text-light text-small" for="solar">Energia Solar</label>
           </div>
         </fieldset>
-        <button class="button" onclick="redirectFromSolar()">Continuar</button>
+        <button class="button" disabled onclick="redirectFromSolar()">Continuar</button>
       </div>
       
       <footer>
@@ -207,6 +206,112 @@
         <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
       </footer>
     </main>
+
+    <main page="10" style="display: none;">
+      <header>
+        <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
+      </header>
+
+      <div class="decision-content-full decision-benefits-step-one" style="width: 80%;">
+        <p class="main-text text-m2">
+          Legal! O que você
+          vende hoje?
+        </p>
+        <fieldset id="solar-solution">
+          <div>
+            <input onclick="checkboxButtonValidation('solar-solution')"type="radio" id="on-grid" name="on-off-grid" class="checkbox" value="on-grid" />
+            <label class="main-text text-light text-small" for="on-grid">On Grid</label>
+          </div>
+          <div>
+            <input onclick="checkboxButtonValidation('solar-solution')"type="radio" id="off-grid" name="on-off-grid" class="checkbox" value="off-grid" />
+            <label class="main-text text-light text-small" for="off-grid">Off Grid</label>
+          </div>
+          <div>
+            <input onclick="checkboxButtonValidation('solar-solution')"type="radio" id="on-and-off" name="on-off-grid" class="checkbox" value="on-and-off" />
+            <label class="main-text text-light text-small" for="on-and-off">On e Off Grid</label>
+          </div>
+        </fieldset>
+        <button class="button" disabled onclick="redirectFromGridType()">Confirmar</button>
+      </div>
+      
+      <footer>
+        <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
+      </footer>
+    </main>
+
+    <main page="11" style="display: none;">
+      <header>
+        <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
+      </header>
+
+      <div class="decision-content-full decision-benefits-step-one" style="width: 90%;">
+        <p class="main-text text-m1">
+          Amplie seu portfólio com <br/>
+          soluções integradas <br/>
+          em energia solar.
+        </p>
+        <img width="600" height="400">
+        <button class="button" onclick="onTreeDecisionClick(11,14)">Quero Começar</button>
+      </div>
+      
+      <footer>
+        <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
+      </footer>
+    </main>
+
+    <main page="12" style="display: none;">
+      <header>
+        <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
+      </header>
+
+      <div class="decision-content-full decision-benefits-step-one" style="width: 90%;">
+        <p class="main-text text-m1">
+          Aumente suas vendas e<br/>
+          ganhe mais dinheiro de<br/>
+          maneira rápida e fácil.
+        </p>
+        <img width="600" height="400">
+        <button class="button" onclick="onTreeDecisionClick(12,14)">Quero Começar</button>
+      </div>
+      
+      <footer>
+        <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
+      </footer>
+    </main>
+
+    <main page="13" style="display: none;">
+      <header>
+        <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
+      </header>
+
+      <div class="decision-content-full decision-benefits-step-one" style="width:100%;">
+        <p class="main-text text-m1">
+          Legal, você já vende <br/>
+          energia solar!
+        </p>
+
+        <p class="main-text text-small text-light">
+          Agora é só aproveitar os descontos <br/>
+          para potencializar suas vendas.
+        </p>
+
+        <div style="display: flex; flex-direction: column; align-self: center;">
+          <p class="coupon">CUPOM ON GRID</p>
+          <p class="coupon">CUPOM OFF GRID</p>
+        </div>
+        
+        <p class="main-text text-small">
+          Tire uma foto dos seus <br />
+          cupons pra usar depois!
+        </p>
+
+        <button class="button" onclick="returnHomePage()">Encerrar</button>
+      </div>
+      
+      <footer>
+        <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
+      </footer>
+    </main>
     
     <main page="14" style="display: none;">
       <header>
@@ -217,6 +322,41 @@
         <p class="main-text text-m1">
           Fature alto instalando <br/>
           energia solar com a Intelbras.
+        </p>
+
+        <p class="main-text text-small text-light">
+          Aproveite os cupons de desconto <br />
+          pra começar faturando mais.
+        </p>
+
+        <div style="display: flex; flex-direction: column; align-self: center;">
+          <p class="coupon">CUPOM ON GRID</p>
+          <p class="coupon">CUPOM OFF GRID</p>
+        </div>
+        
+        <p class="main-text text-small">
+          Tire uma foto dos seus <br />
+          cupons pra usar depois!
+        </p>
+
+        <button class="button" onclick="returnHomePage()">Encerrar</button>
+      </div>
+      
+      <footer>
+        <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
+      </footer>
+    </main>
+    
+    <main page="15" style="display: none;">
+      <header>
+        <img src="img/home.png" alt="Retornar para a primeira página" width="100px" height="100px">
+      </header>
+
+      <div class="decision-content-full decision-benefits-step-one" style="width:100%;">
+        <p class="main-text text-m1">
+          Turbine seu negócio <br/>
+          oferecendo novas soluções <br/>
+          para os seus clientes.
         </p>
 
         <p class="main-text text-small text-light">
