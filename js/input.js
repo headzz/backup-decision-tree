@@ -46,7 +46,6 @@ function telephoneMask(){
   let textoAjustado;
   const textoAtual = telephoneData.value.replaceAll(" ", "").replaceAll("-", "");
 
-  console.log(telephoneSize)
   if(telephoneSize >2){
     const parte1 = textoAtual.slice(0,2);
     const parte2 = textoAtual.slice(2,telephoneSize);
