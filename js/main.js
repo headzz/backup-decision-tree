@@ -1,6 +1,6 @@
 const PAGE_WITHOUT_VALIDATION = 4;
 
-const onPageClick = (id) => {
+const onPageClick = (id, nextPageFocus) => {
   window.top.postMessage('keepTemplate', '*');
   const pageToBeChanged = `main[page="${id}"]`
 
@@ -12,6 +12,11 @@ const onPageClick = (id) => {
   
     const nextPage = `main[page="${(id+1)}"]`
     document.querySelector(nextPage).style = "display: grid"
+
+    if(nextPageFocus && nextPageFocus.includes('client-')){
+      document.getElementById(nextPageFocus).focus()
+      navigator.virtualKeyboard.show();
+    }
 
     if((id+1)<PAGE_WITHOUT_VALIDATION){
       document.querySelector(`${nextPage} div button`).disabled = true
@@ -29,7 +34,7 @@ const onTreeDecisionClick = (actualPage, id, send)=> {
   const pageToBeChanged = `main[page="${actualPage}"]`;
   document.querySelector(pageToBeChanged).style = "display: none";
 
-  onPageClick(id)
+  onPageClick(id, send)
 }
 
 const returnHomePage = () => {

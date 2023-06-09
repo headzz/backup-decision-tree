@@ -24,7 +24,7 @@
         <label for="client-name"></label>
         <input type="text" placeholder="Nome: " name="name" onkeydown='processChange("name")' id="client-name" autocomplete="none" autocomplete="off" autofocus >
         <p id="errorMessage" style="font-size: 32px;"></p>
-        <button class="button" onclick="onPageClick(1)" disabled>Confirmar</button>
+        <button class="button" onclick="onPageClick(1, 'client-telephone')" disabled>Confirmar</button>
       </div>
       <footer>
         <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
@@ -39,7 +39,7 @@
         <label for="client-telephone"></label>
         <input type="tel" placeholder="Telefone: " name="telephone" maxlength="13" onkeydown='processChange("telephone")' id="client-telephone" autocomplete="none" autocomplete="off" autofocus >
         <p id="errorMessage" ></p>
-        <button class="button" onclick="onPageClick(2)">Confirmar</button>
+        <button class="button" onclick="onPageClick(2, 'client-cpf')">Confirmar</button>
       </div>
       <footer>
         <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
@@ -54,7 +54,7 @@
         <label for="client-cpf"></label>
         <input type="text" placeholder="CPF/CNPJ: " name="cpf" onkeydown='processChange("cpfcnpj")' maxlength="18" id="client-cpf" autocomplete="none" autocomplete="off" autofocus >
         <p id="errorMessage" ></p>
-        <button class="button" onclick="onTreeDecisionClick(3,15)">Confirmar</button>
+        <button class="button" onclick="onTreeDecisionClick(3,15, 'client-email')">Confirmar</button>
       </div>
       <footer>
         <img src="img/intelbras-logo.png" alt="Logo da empresa intelbras" width="50%" height="50%">
