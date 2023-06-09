@@ -1,16 +1,12 @@
-let page = 1;
-let disabled = false
-let clientData =  {cpfOrCnpj: '', email: '', name: '', }
 const PAGE_WITHOUT_VALIDATION = 4;
 
 const onPageClick = (id) => {
-
+  window.top.postMessage('keepTemplate', '*');
   const pageToBeChanged = `main[page="${id}"]`
 
   const pageElement = document.querySelector(pageToBeChanged)
 
   if(pageElement){
-    console.log('entrei page element')
     pageElement.style = "display: none" 
   }
   
@@ -22,25 +18,23 @@ const onPageClick = (id) => {
     }
 }
 
-const onTreeDecisionClick = (actualPage, id)=> {
+const onTreeDecisionClick = (actualPage, id, send)=> {
 
+  window.top.postMessage('keepTemplate', '*');
+  if(send === 'send'){
+    sendData(true)
+  }
+
+  document.body.style = 'background-image: none;'
   const pageToBeChanged = `main[page="${actualPage}"]`;
   document.querySelector(pageToBeChanged).style = "display: none";
 
   onPageClick(id)
 }
 
-const showLastPage = (actualPage)=> {
-
-  const pageToBeChanged = `main[page="${actualPage}"]`;
-  document.querySelector(pageToBeChanged).style = "display: none";
-
-  const lastPage = `main[page="14"]`;
-  document.querySelector(lastPage).style = "display: grid";
-}
-
 const returnHomePage = () => {
-  console.log('return to home page')
+
+  window.top.postMessage('nextTemplate', '*');
 }
 
 function debounce(func, timeout = 250){
@@ -51,6 +45,9 @@ function debounce(func, timeout = 250){
   };
 }
 
-const validation = {name: nameValidation, telephone: telephoneMask, cpfcnpj: cpfCnpjMask}
+const validation = {name: nameValidation, telephone: telephoneMask, cpfcnpj: cpfCnpjMask, email: emailValidation}
 
-const processChange = debounce((inputName) => validation[inputName]());
+const processChange = debounce((inputName) => {
+  window.top.postMessage('keepTemplate', '*');
+  validation[inputName]()
+});

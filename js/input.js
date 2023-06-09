@@ -29,10 +29,11 @@ function isNumberValid(button, error, type, text){
   const errorMessage = (type == 'telephone') ? 'Telefone deve conter apenas números.' : 'CPF/CNPJ deve conter apenas números.'
   if(isValid){
     button.disabled = false
-    return error.innerHTML = ''
+    error.innerHTML = ''
+  } else {
+    button.disabled = true
+    error.innerHTML = errorMessage
   }
-  button.disabled = true
-  return error.innerHTML = errorMessage
 }
 
 function telephoneMask(){
@@ -44,22 +45,8 @@ function telephoneMask(){
 
   let textoAjustado;
   const textoAtual = telephoneData.value.replaceAll(" ", "").replaceAll("-", "");
-  
-  if(telephoneSize >12){
-    formatTelephone(telephoneData, textoAtual, telephoneSize, 2, 7)
-    return isNumberValid(buttonData, inputError, 'telephone', textoAtual)
-  } 
 
-  if(telephoneSize >7){
-    formatTelephone(telephoneData, textoAtual, telephoneSize, 2, 6)
-
-    if(telephoneSize === 12){
-      return isNumberValid(buttonData, inputError, 'telephone', textoAtual)
-    } 
-      buttonData.disabled = true
-      return inputError.innerHTML = ''
-  }
-
+  console.log(telephoneSize)
   if(telephoneSize >2){
     const parte1 = textoAtual.slice(0,2);
     const parte2 = textoAtual.slice(2,telephoneSize);
@@ -67,8 +54,26 @@ function telephoneMask(){
     telephoneData.value = textoAjustado
 
     buttonData.disabled = true
-    return;
   }
+
+  if(telephoneSize >7){
+    formatTelephone(telephoneData, textoAtual, telephoneSize, 2, 6)
+
+    if(telephoneSize === 12){
+      clientData.telephone = textoAtual
+      isNumberValid(buttonData, inputError, 'telephone', textoAtual)
+    } else {
+
+      buttonData.disabled = true
+      inputError.innerHTML = ''
+    }
+  }
+  
+  if(telephoneSize >12){
+    clientData.telephone = textoAtual
+    formatTelephone(telephoneData, textoAtual, telephoneSize, 2, 7)
+     isNumberValid(buttonData, inputError, 'telephone', textoAtual)
+  } 
 }
 
 function cpfCnpjMask(){
@@ -83,6 +88,7 @@ function cpfCnpjMask(){
   const inputCpfCnpjSize = textoAtual.length
 
   if(inputCpfCnpjSize === 11 ){
+    clientData.cpfOrCnpj = textoAtual
     const parte1 = textoAtual.slice(0,3);
     const parte2 = textoAtual.slice(3,6);
     const parte3 = textoAtual.slice(6,9);
@@ -94,6 +100,7 @@ function cpfCnpjMask(){
   }
 
   if(inputCpfCnpjSize === 14){
+    clientData.cpfOrCnpj = textoAtual
     const parte1 = textoAtual.slice(0,2);
     const parte2 = textoAtual.slice(2,5);
     const parte3 = textoAtual.slice(5,8);
@@ -107,4 +114,24 @@ function cpfCnpjMask(){
 
   cpfCnpjData.value = textoAtual
   buttonData.disabled = true
+}
+
+function emailValidation(){
+  const emailData = document.querySelector(`main div input[name="email"]`)
+  const inputError = emailData.nextElementSibling
+  const buttonData = inputError.nextElementSibling
+
+  const emailRegex = /^(.+)@(.+)\.(.+)$/
+  const textoAtual = emailData.value
+
+  const isEmailValid = emailRegex.test(textoAtual.trim())
+
+  if(isEmailValid){
+    buttonData.disabled = false
+    clientData.email = textoAtual
+    return inputError.innerHTML = ''
+  } else {
+    buttonData.disabled = true
+    return inputError.innerHTML = 'Formato de Email inválido.'
+  }
 }

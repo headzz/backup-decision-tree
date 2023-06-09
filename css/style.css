@@ -1,5 +1,11 @@
 @font-face {
   font-family: Museo Sans;
+  src: url("../webfonts/MuseoSans-900.otf");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: Museo Sans;
   src: url("../webfonts/MuseoSans-700.ttf");
   font-weight: 700;
 }
@@ -68,8 +74,8 @@ main {
     "content"
     "foot";
   grid-template-rows: 270px 1fr 270px;
-  height: 100vh;
-  height: 100dvh;
+  height: 99vh;
+  height: 99dvh;
   justify-content: center;
 }
 
@@ -180,6 +186,10 @@ p {
   font-weight: 500;
 }
 
+.text-heavy {
+  font-weight: 900;
+}
+
 .text-m1 {
   font-size: 60px;
 }
@@ -190,6 +200,10 @@ p {
 
 .text-small {
   font-size: 45px;
+}
+
+.text-mini {
+  font-size: 34px;
 }
 
 #errorMessage {
